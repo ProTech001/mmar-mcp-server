@@ -18,7 +18,7 @@ MMAR-MCP exposes the MM-AR platform's capabilities through the Model Context Pro
 ## Installation
 
 ```bash
-git clone https://github.com/MM-AR/mmar-mcp-server.git
+git clone https://github.com/ProTech001/mmar-mcp-server.git
 cd mmar-mcp-server
 npm install
 npm run build
