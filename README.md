@@ -14,7 +14,7 @@ MMAR-MCP exposes the MM-AR platform's capabilities through the Model Context Pro
 
 - [Node.js](https://nodejs.org/) v18 or later
 - [Docker](https://www.docker.com/) (for running the MM-AR platform)
-- [Cursor IDE](https://www.cursor.com/) (or another MCP-compatible host)
+- An MCP-compatible host application (e.g., [Cursor IDE](https://www.cursor.com/), [Claude Desktop](https://claude.ai/download), or any client supporting the [Model Context Protocol](https://modelcontextprotocol.io/))
 
 ## Getting Started
 
@@ -39,9 +39,24 @@ npm install
 npm run build
 ```
 
-### Step 3: Configure Cursor IDE
+### Step 3: Configure Your MCP Host
 
-Add the following to your Cursor MCP configuration file (`.cursor/mcp.json` in your project root):
+The server runs over STDIO and works with any MCP-compatible host. Below are configuration examples for common hosts.
+
+**Cursor IDE** — add to `.cursor/mcp.json` in your project root:
+
+```json
+{
+  "mcpServers": {
+    "mmar": {
+      "command": "node",
+      "args": ["/absolute/path/to/mmar-mcp-server/dist/index.js"]
+    }
+  }
+}
+```
+
+**Claude Desktop** — add to your Claude Desktop configuration file:
 
 ```json
 {
@@ -58,13 +73,13 @@ Replace `/absolute/path/to/mmar-mcp-server` with the actual path where you clone
 
 ### Step 4: Start Using
 
-Once configured, you can use the guided prompts in Cursor:
+Once configured, you can use the guided prompts in your MCP host:
 
 1. **create-metamodel** — Create a new modeling language from a natural language description
 2. **create-model** — Create a model instance using an existing metamodel
 3. **analyze-model** — Inspect and analyze existing models
 
-For example, type in Cursor: *"Use the create-metamodel prompt to create a Petri Net modeling language with Place nodes, Transition nodes, and Arc connections."*
+For example: *"Use the create-metamodel prompt to create a Petri Net modeling language with Place nodes, Transition nodes, and Arc connections."*
 
 ## Configuration
 
