@@ -1,0 +1,121 @@
+{
+  "_comment": "BEFORE USING: Call mmar_list_attribute_types and replace STRING_TYPE_UUID and FLOAT_TYPE_UUID below with real UUIDs from your database.",
+  "_tool": "mmar_create_scene_type",
+  "_tool_params": {
+    "uuid": "a0000000-0001-4000-8000-000000000001",
+    "scene_type_data": "COPY THE JSON BELOW (without this wrapper)"
+  },
+  "payload": {
+    "uuid": "a0000000-0001-4000-8000-000000000001",
+    "name": "Simple Petri Net",
+    "description": "A basic Petri Net modeling language with Places, Transitions, and Arcs",
+    "classes": [
+      {
+        "uuid": "a0000000-0002-4000-8000-000000000001",
+        "name": "Place",
+        "geometry": null,
+        "is_reusable": null,
+        "is_abstract": null,
+        "attributes": [
+          {
+            "uuid": "a0000000-0003-4000-8000-000000000001",
+            "name": "Name",
+            "multi_valued": false,
+            "default_value": "Place",
+            "sequence": 1,
+            "ui_component": "text",
+            "attribute_type": {
+              "uuid": "STRING_TYPE_UUID",
+              "name": "String"
+            }
+          },
+          {
+            "uuid": "a0000000-0003-4000-8000-000000000002",
+            "name": "Tokens",
+            "multi_valued": false,
+            "default_value": "0",
+            "sequence": 2,
+            "ui_component": "number",
+            "attribute_type": {
+              "uuid": "FLOAT_TYPE_UUID",
+              "name": "Float"
+            }
+          }
+        ],
+        "ports": []
+      },
+      {
+        "uuid": "a0000000-0002-4000-8000-000000000002",
+        "name": "Transition",
+        "geometry": null,
+        "is_reusable": null,
+        "is_abstract": null,
+        "attributes": [
+          {
+            "uuid": "a0000000-0003-4000-8000-000000000003",
+            "name": "Name",
+            "multi_valued": false,
+            "default_value": "Transition",
+            "sequence": 1,
+            "ui_component": "text",
+            "attribute_type": {
+              "uuid": "STRING_TYPE_UUID",
+              "name": "String"
+            }
+          }
+        ],
+        "ports": []
+      }
+    ],
+    "relationclasses": [
+      {
+        "uuid": "a0000000-0004-4000-8000-000000000001",
+        "name": "Arc",
+        "geometry": null,
+        "role_from": {
+          "uuid": "a0000000-0005-4000-8000-000000000001",
+          "name": "source",
+          "class_references": [
+            { "uuid": "a0000000-0002-4000-8000-000000000001", "min": 0, "max": -1 },
+            { "uuid": "a0000000-0002-4000-8000-000000000002", "min": 0, "max": -1 }
+          ],
+          "relationclass_references": [],
+          "port_references": [],
+          "scenetype_references": [],
+          "attribute_references": []
+        },
+        "role_to": {
+          "uuid": "a0000000-0005-4000-8000-000000000002",
+          "name": "target",
+          "class_references": [
+            { "uuid": "a0000000-0002-4000-8000-000000000001", "min": 0, "max": -1 },
+            { "uuid": "a0000000-0002-4000-8000-000000000002", "min": 0, "max": -1 }
+          ],
+          "relationclass_references": [],
+          "port_references": [],
+          "scenetype_references": [],
+          "attribute_references": []
+        },
+        "bendpoint": null,
+        "attributes": [
+          {
+            "uuid": "a0000000-0003-4000-8000-000000000004",
+            "name": "Weight",
+            "multi_valued": false,
+            "default_value": "1",
+            "sequence": 1,
+            "ui_component": "number",
+            "attribute_type": {
+              "uuid": "FLOAT_TYPE_UUID",
+              "name": "Float"
+            }
+          }
+        ],
+        "ports": []
+      }
+    ],
+    "attributes": [],
+    "ports": [],
+    "procedures": []
+  }
+}

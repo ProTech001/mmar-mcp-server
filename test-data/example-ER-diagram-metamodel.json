@@ -1,0 +1,195 @@
+{
+  "_comment": "BEFORE USING: Call mmar_list_attribute_types and replace STRING_TYPE_UUID below with the real UUID from your database.",
+  "_tool": "mmar_create_scene_type",
+  "_tool_params": {
+    "uuid": "b0000000-0001-4000-8000-000000000001",
+    "scene_type_data": "COPY THE payload BELOW as a JSON string"
+  },
+  "payload": {
+    "uuid": "b0000000-0001-4000-8000-000000000001",
+    "name": "Simple ER Diagram",
+    "description": "A basic Entity-Relationship modeling language with Entities, Attributes, and Relationships",
+    "classes": [
+      {
+        "uuid": "b0000000-0002-4000-8000-000000000001",
+        "name": "Entity",
+        "geometry": null,
+        "is_reusable": null,
+        "is_abstract": null,
+        "attributes": [
+          {
+            "uuid": "b0000000-0003-4000-8000-000000000001",
+            "name": "Name",
+            "multi_valued": false,
+            "default_value": "Entity",
+            "sequence": 1,
+            "ui_component": "text",
+            "attribute_type": {
+              "uuid": "STRING_TYPE_UUID",
+              "name": "String"
+            }
+          },
+          {
+            "uuid": "b0000000-0003-4000-8000-000000000002",
+            "name": "Description",
+            "multi_valued": false,
+            "default_value": "",
+            "sequence": 2,
+            "ui_component": "text",
+            "attribute_type": {
+              "uuid": "STRING_TYPE_UUID",
+              "name": "String"
+            }
+          }
+        ],
+        "ports": []
+      },
+      {
+        "uuid": "b0000000-0002-4000-8000-000000000002",
+        "name": "ER_Attribute",
+        "geometry": null,
+        "is_reusable": null,
+        "is_abstract": null,
+        "attributes": [
+          {
+            "uuid": "b0000000-0003-4000-8000-000000000003",
+            "name": "Name",
+            "multi_valued": false,
+            "default_value": "Attribute",
+            "sequence": 1,
+            "ui_component": "text",
+            "attribute_type": {
+              "uuid": "STRING_TYPE_UUID",
+              "name": "String"
+            }
+          },
+          {
+            "uuid": "b0000000-0003-4000-8000-000000000004",
+            "name": "DataType",
+            "multi_valued": false,
+            "default_value": "VARCHAR",
+            "sequence": 2,
+            "ui_component": "text",
+            "attribute_type": {
+              "uuid": "STRING_TYPE_UUID",
+              "name": "String"
+            }
+          },
+          {
+            "uuid": "b0000000-0003-4000-8000-000000000005",
+            "name": "IsPrimaryKey",
+            "multi_valued": false,
+            "default_value": "false",
+            "sequence": 3,
+            "ui_component": "text",
+            "attribute_type": {
+              "uuid": "STRING_TYPE_UUID",
+              "name": "String"
+            }
+          }
+        ],
+        "ports": []
+      },
+      {
+        "uuid": "b0000000-0002-4000-8000-000000000003",
+        "name": "Relationship",
+        "geometry": null,
+        "is_reusable": null,
+        "is_abstract": null,
+        "attributes": [
+          {
+            "uuid": "b0000000-0003-4000-8000-000000000006",
+            "name": "Name",
+            "multi_valued": false,
+            "default_value": "Relationship",
+            "sequence": 1,
+            "ui_component": "text",
+            "attribute_type": {
+              "uuid": "STRING_TYPE_UUID",
+              "name": "String"
+            }
+          }
+        ],
+        "ports": []
+      }
+    ],
+    "relationclasses": [
+      {
+        "uuid": "b0000000-0004-4000-8000-000000000001",
+        "name": "HasAttribute",
+        "geometry": null,
+        "role_from": {
+          "uuid": "b0000000-0005-4000-8000-000000000001",
+          "name": "owner",
+          "class_references": [
+            { "uuid": "b0000000-0002-4000-8000-000000000001", "min": 0, "max": -1 }
+          ],
+          "relationclass_references": [],
+          "port_references": [],
+          "scenetype_references": [],
+          "attribute_references": []
+        },
+        "role_to": {
+          "uuid": "b0000000-0005-4000-8000-000000000002",
+          "name": "attribute",
+          "class_references": [
+            { "uuid": "b0000000-0002-4000-8000-000000000002", "min": 0, "max": -1 }
+          ],
+          "relationclass_references": [],
+          "port_references": [],
+          "scenetype_references": [],
+          "attribute_references": []
+        },
+        "bendpoint": null,
+        "attributes": [],
+        "ports": []
+      },
+      {
+        "uuid": "b0000000-0004-4000-8000-000000000002",
+        "name": "Participates",
+        "geometry": null,
+        "role_from": {
+          "uuid": "b0000000-0005-4000-8000-000000000003",
+          "name": "entity",
+          "class_references": [
+            { "uuid": "b0000000-0002-4000-8000-000000000001", "min": 0, "max": -1 }
+          ],
+          "relationclass_references": [],
+          "port_references": [],
+          "scenetype_references": [],
+          "attribute_references": []
+        },
+        "role_to": {
+          "uuid": "b0000000-0005-4000-8000-000000000004",
+          "name": "relationship",
+          "class_references": [
+            { "uuid": "b0000000-0002-4000-8000-000000000003", "min": 0, "max": -1 }
+          ],
+          "relationclass_references": [],
+          "port_references": [],
+          "scenetype_references": [],
+          "attribute_references": []
+        },
+        "bendpoint": null,
+        "attributes": [
+          {
+            "uuid": "b0000000-0003-4000-8000-000000000007",
+            "name": "Cardinality",
+            "multi_valued": false,
+            "default_value": "1",
+            "sequence": 1,
+            "ui_component": "text",
+            "attribute_type": {
+              "uuid": "STRING_TYPE_UUID",
+              "name": "String"
+            }
+          }
+        ],
+        "ports": []
+      }
+    ],
+    "attributes": [],
+    "ports": [],
+    "procedures": []
+  }
+}
